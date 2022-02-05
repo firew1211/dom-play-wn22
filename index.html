@@ -1,34 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Title Goes Here</title>
-        <meta charset="utf-8" />
-        <meta name="robots" content="noindex,nofollow" />
-        <meta name="viewport" content="width=device-width" />
-        <link rel="stylesheet" href="css/main.css" />
-        <link rel="stylesheet" href="css/nav.css" />
-    </head>
-    <body>
-         <header>
-         <h1>Title Goes Here</h1>
-            <nav class="topnav" id="myTopnav">
-               Title Goes Here <a href="index.html" class="active">Home</a>
-                <a href="$#" target="_blank">Name of the project Goes Here</a>
-                <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
-            </nav>
-         </header>
+ <head>
+     <title>DOM Play</title>
+  <meta charset="utf-8" />
+  <meta name="robots" content="noindex,nofollow" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/nav.css" />
+  <style>
+     /*
+    div#play span {
+          background-color:yellow;
+      }
+     */
+  </style>
+ 
+ </head>
+ <body>
+     <header>
+     <h1>DOM Play</h1>
+     </header>
      
-        <main class="wrapper"> 
-            <h2 class="subheader">Title Goes Here</h2>
-            <p>content goes here</p>
-            <footer>
-                <p><small>&copy; 2021 by 
-                    Firew Kahsay, All Rights Reserved ~ 
-                    <a id="html-checker" href="#">Check HTML</a> ~ 
-                    <a id="css-checker" href="#">Check CSS</a></small>
-                </p>
-            </footer>
-     </main>
-     <script src="js/main.js"></script>
-    </body>
+   <main class="wrapper">
+       <div id="play">
+        <p><span data-actor="hamlet">Hamlet: To be or not to be?</span></p>
+        <p><span data-actor="skull">Skull: Are you talking to me?</span></p>
+        <p><span data-actor="hamlet">Hamlet: Did you say something?</span></p>
+        <p><span data-actor="skull">Skull: No, I'm only a skull.</span></p>
+        <p><span data-actor="hamlet">Hamlet: Good! I thought I was going crazy.</span></p>
+        <p><span data-actor="romeo">Romeo: What am I doing here?.</span></p>
+    </div>
+     <footer>
+      <p><small>&copy; 2022 by
+          Firew Kahsay, All Rights Reserved ~
+          <a id="html-checker" href="#">Check HTML</a> ~
+          <a id="css-checker" href="#">Check CSS</a></small>
+     </p>
+    </footer>
+  </main>
+  <script>
+
+    const spans = document.querySelectorAll('div#play span');
+
+    console.log(spans);
+
+    for(const mySpan of spans){
+        mySpan.addEventListener('click',function(ev){
+           // alert(mySpan.dataset.actor);
+           highlightActor(mySpan.dataset.actor);
+        });
+    }
+
+    function highlightActor(myActor){
+
+        for(const mySpan of spans){
+       
+            if(myActor == "mySpan.dataset.actor"){
+                mySpan.style.backgroundColor='yellow';
+            }else{
+                mySpan.style.backgroundColor='white';  
+            }
+
+    }
+       
+        }
+
+      //document.querySelector('span.hamlet').style.backgroundColor = "yellow";
+  </script>
+  <script src="js/main.js"></script>
+     
+ </body>
 </html>
